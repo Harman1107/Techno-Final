@@ -64,20 +64,31 @@ const Table = ({
     console.log(newEditData);
   };
 
+  const toggleEdit = (cell:any) => {
+    
+  }
+
   const handleEditSubmit = (event: any) => {
     event.preventDefault();
-    console.log(originalVals);
+    console.log(event);
     const newContact = {
       firstName: editData.firstName,
       maidenName: editData.maidenName,
     };
-    setShowUserModal(false);
 
-    // console.log(originalVals.row.original.firstName);
+    data.map((user:any) => {
+        if(user.id == originalVals){
+            user.firstName = newContact.firstName;
+            user.maidenName = newContact.maidenName;
+            console.log(user.maidenName);
+        }
+    })
 
+    setEditModal(false);
+    console.log(originalVals);
     setData((current: any) => current.filter((user: any) => user.id !== 200));
   };
-  const [originalVals, setOrigirnalVals] = React.useState({});
+  const [originalVals, setOrigirnalVals] = React.useState();
 
   const handleChange = (event: any) => {
     console.log(event.target.getAttribute('name'));
@@ -352,7 +363,7 @@ const Table = ({
                           className="odd:bg-white even:bg-slate-100"
                           {...row.getRowProps()}
                         >
-                          {row.cells.map(cell => {
+                          {row.cells.map((cell:any) => {
                             return (
                               <>
                                 <td
@@ -387,10 +398,10 @@ const Table = ({
                                     <button
                                       className=" p-2.5 bg-white-500 rounded-xl hover:rounded-3xl hover:bg-gray-600 transition-all duration-300 text-black"
                                       onClick={() => {
-                                        setOrigirnalVals(cell);
+                                        // const name = cell.row.original.firstName;
+                                        setOrigirnalVals(cell.row.original.id);
                                         setEditModal(!showEditModal);
-                                        console.log(originalVals);
-                                        console.log(cell);
+                                        // toggleEdit(cell);
                                       }}
                                     >
                                       <svg

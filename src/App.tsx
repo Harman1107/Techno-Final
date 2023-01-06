@@ -111,34 +111,29 @@ function App() {
     const fetch = async () => {
       const res = await axios('https://dummyjson.com/users');
       const data = res.data.users;
+      data.map((data: any) => {
+        if (data.age > 25) {
+          data.maidenName = 'Sales Rep';
+        } else if (data.age >= 50) {
+          data.maidenName = 'Admin';
+        } else {
+          data.maidenName = 'Sales Leader';
+        }
+  
+        if (data.height > 185) {
+          data.bloodGroup = 'Invited';
+        } else {
+          data.bloodGroup = 'Active';
+        }
+      });
       setData(data);
       console.log(data);
     };
-
+    
     fetch();
   }, []);
 
   const resetData = () => setData(originalData);
-
-  const changeData = (data: any) => {
-    data.map((data: any) => {
-      if (data.age > 25) {
-        data.maidenName = 'Sales Rep';
-      } else if (data.age >= 50) {
-        data.maidenName = 'Admin';
-      } else {
-        data.maidenName = 'Sales Leader';
-      }
-
-      if (data.height > 185) {
-        data.bloodGroup = 'Invited';
-      } else {
-        data.bloodGroup = 'Active';
-      }
-    });
-  };
-
-  changeData(data);
 
   return (
     <>
