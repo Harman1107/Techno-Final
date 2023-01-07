@@ -39,9 +39,10 @@ const Table = ({
   const AddUser = () => {
     setShowUserModal(!showUserModal);
   };
-
+  var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   var today = new Date(),
-  date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  date = month[Number(today.getMonth())] + " " + today.getDay() + ", "+ today.getFullYear();
+  
 
   const [addData, setAddData] = React.useState({
     id: 1,

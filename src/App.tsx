@@ -3,6 +3,7 @@ import {useTable, usePagination, useSortBy} from 'react-table';
 import axios from 'axios';
 import Table from './components/Table';
 import { url } from 'inspector';
+import { cursorTo } from 'readline';
 
 const EditableCell = ({
   value: initialValue,
@@ -26,10 +27,17 @@ const EditableCell = ({
 
   return <input value={value} onChange={onChange} onBlur={onBlur} />;
 };
+var today = new Date(),
+ 
+    curTime = today.getHours() + ':' + today.getMinutes()
 
 const defaultColumn = {
   Cell: EditableCell,
 };
+
+const changeDate = (date) => {
+  console.log(date[0]);
+}
 
 function App() {
   const columns = React.useMemo(
@@ -80,6 +88,14 @@ function App() {
           },
           {
             Header: 'Last Login',
+            Cell: tableProps => (
+              <div className="mr-40">
+                {tableProps.row.original.birthDate}
+                <p className="text-gray-500 font-normal">
+                  {curTime}
+                </p>
+              </div>
+            ),
             accessor: 'birthDate',
           },
         ],
@@ -123,12 +139,29 @@ function App() {
         } else {
           data.maidenName = 'Sales Leader';
         }
-  
+        var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
+        const date = data.birthDate;
+        var m;
+        if(date[5] == 0){
+          m=  month[Number(date[6]) - 1]
+        }
+        else{
+          m = month[Number(date[5]+date[6]) - 1]
+        }
+        
+        var day = date[8]+date[9];
+        var year = date[0]+date[1]+date[2]+date[3];
+
+        var newDate = m + " " + day + ", "+year
+        data.birthDate = newDate;
+      
         if (data.height > 185) {
           data.bloodGroup = 'Invited';
         } else {
           data.bloodGroup = 'Active';
         }
+
+
       });
       setData(data);
       console.log(data);
