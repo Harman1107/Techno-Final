@@ -21,4 +21,5 @@ This is a profile dashboard, displaying details of multiple members.
 1. Ability to download CSV file of the displayed table.
 2. Used React-table for displaying, sorting, pagination.
 3. Used Tailwind for CSS styling.
+4. Added Confirmation Modal for Delete User
 
