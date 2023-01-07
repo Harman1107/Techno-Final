@@ -7,7 +7,7 @@ This is a profile dashboard, displaying details of multiple members.
 ### https://techno-final-c2mnxmwia-harman1107.vercel.app/
 
 ## Functional Requirements Completed
-1. Pulled data from a user API () and shown the data in a table
+1. Pulled data from a user API (### https://dummyjson.com/users) and shown the data in a table
 2. Feature to Create, Delete and Edit member details, used Modals for edit and create user.
 3. Listed users using individual column sorting and pagination.
 4. All required UI components included ( Badge, Button, Pagination).
