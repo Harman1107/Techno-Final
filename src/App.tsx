@@ -147,7 +147,7 @@ function App() {
         data={data}
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
-        defaultColumn={defaultColumn}
+        // defaultColumn={defaultColumn}
         setData={setData}
       />
     </>

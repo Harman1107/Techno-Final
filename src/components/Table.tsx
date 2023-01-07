@@ -7,7 +7,7 @@ const Table = ({
   data,
   updateMyData,
   skipPageReset,
-  defaultColumn,
+  // defaultColumn,
   setData,
 }) => {
   const {
@@ -25,7 +25,7 @@ const Table = ({
     {
       columns,
       data,
-      defaultColumn,
+      // defaultColumn,
       autoResetPage: !skipPageReset,
       updateMyData,
     },
