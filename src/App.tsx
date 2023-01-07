@@ -2,6 +2,7 @@ import React from 'react';
 import {useTable, usePagination, useSortBy} from 'react-table';
 import axios from 'axios';
 import Table from './components/Table';
+import { url } from 'inspector';
 
 const EditableCell = ({
   value: initialValue,
@@ -40,10 +41,13 @@ function App() {
             Header: 'Name',
             Cell: tableProps => (
               <div className="mr-40">
-                <img
+                {tableProps.row.original.image ? <img
                   className="h-12 mr-2 w-12 rounded-full inline flex float-left"
                   src={tableProps.row.original.image}
-                />
+                /> : <img
+                className="h-12 mr-2 w-12 rounded-full inline flex float-left"
+                src= "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
+              />}
                 {tableProps.row.original.firstName}
                 <p className="text-gray-500 font-normal">
                   {tableProps.row.original.email}

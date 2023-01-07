@@ -137,9 +137,78 @@ const Table = ({
     {label: 'Last Login', key: 'birthDate'},
   ];
 
+  const [showDeleteModal, setDeleteModal] = React.useState(false);
+
+  const [deleteCell, setDeleteCell] = React.useState();
+  const [deleteCellName, setDeleteCellName] = React.useState("");
+
+
+  const toggleDeleteModel = (cell:any) => {
+    setDeleteModal(true);
+    setDeleteCell(cell);
+    console.log(deleteCell);
+    setDeleteModal(false);
+  }
+
   return (
-    //Add User Modal
+    
     <>
+    {/* Delete User Modal */}
+    {showDeleteModal && (
+        <>
+          <div className="justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+            <div className="relative w- my-6 mx-auto max-w-2xl">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                  <h3 className="text-3xl font-semibold">Delete User</h3>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowUserModal(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                <div className="p-6 space-y-6">
+                
+                <p className="text-base leading-relaxed text-black-500">
+                    Are you Sure you want to Delete User Details of <strong>{deleteCellName}</strong> ?
+                </p>
+            </div>
+
+                <div className='flex-row'>
+                <button
+                    type="button"
+                    className="m-4 float-right text-white bg-blue-400 border hover:bg-gray-300 hover:text-black font-bold py-2 px-4 rounded inline-flex items-center "
+                    onClick={() => {
+                      deleteRow(deleteCell)
+                      setDeleteModal(false)
+                    }}
+                  >
+                    Delete User
+                  </button>
+                <button
+                    className="ml-4 mt-4 float-left text-red bg-white-400 border hover:bg-red-700 hover:text-white font-bold py-2 px-4 rounded inline-flex items-center "
+                    type="button"
+                    onClick={() => setDeleteModal(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+  
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"></div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      )}
+    
+
+
+    {/* Add User Modal */}
       {showUserModal && (
         <>
           <div className="justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -376,7 +445,11 @@ const Table = ({
                                   <>
                                     <button
                                       className="mt-6 mr-3 p-2.5 bg-white-500 rounded-xl hover:rounded-3xl hover:bg-gray-600 transition-all duration-300 text-black hover:rounded-3xl hover:bg-gray-600 transition-all duration-300"
-                                      onClick={() => deleteRow(cell)}
+                                      onClick={() => {
+                                        setDeleteCell(cell);
+                                        setDeleteCellName(cell.row.original.firstName)
+                                        setDeleteModal(true);
+                                      }}
                                     >
                                       <span>
                                         <svg
