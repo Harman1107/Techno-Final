@@ -386,6 +386,11 @@ const Table = ({
                     ></path>
                   </svg>
                 </button>
+                <CSVLink
+                      data={data}
+                      headers={headers}
+                      filename={'Users.csv'}
+                    >
                 <button className="float-right mr-3 bg-white-300 border hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                   <svg
                     className="fill-current w-4 h-4 mr-2"
@@ -395,15 +400,11 @@ const Table = ({
                     <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                   </svg>
                   <span>
-                    <CSVLink
-                      data={data}
-                      headers={headers}
-                      filename={'Users.csv'}
-                    >
+                    
                       Download as CSV
-                    </CSVLink>
+                    
                   </span>
-                </button>
+                </button></CSVLink>
                 <table className=" min-w-full" {...getTableProps()}>
                   <thead className="bg-white border-b">
                     {headerGroups.map(headerGroup => (
