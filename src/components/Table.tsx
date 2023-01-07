@@ -40,12 +40,15 @@ const Table = ({
     setShowUserModal(!showUserModal);
   };
 
+  var today = new Date(),
+  date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
   const [addData, setAddData] = React.useState({
     id: 1,
     firstName: '',
     bloodGroup: '',
     maidenName: '',
-    birthDate: Date.now(),
+    birthDate: date,
     email: '',
   });
 
