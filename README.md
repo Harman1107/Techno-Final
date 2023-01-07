@@ -4,7 +4,7 @@ This is a profile dashboard, displaying details of multiple members.
 
 ## Deployement Link
 
-### https://techno-final-c2mnxmwia-harman1107.vercel.app/
+### https://techno-final-3ubfkgcti-harman1107.vercel.app/
 
 ## Functional Requirements Completed
 1. Pulled data from a user API (https://dummyjson.com/users) and shown the data in a table
