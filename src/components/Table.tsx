@@ -518,9 +518,17 @@ const Table = ({
                   <li onClick={() => gotoPage(1)}>
                   <a  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">2</a>
                   </li>
+                  
+                  {Number(data.length)%3!==0 ?<>
+                  <li onClick={() => gotoPage(2)}>
+                  <a  aria-current="page" className="z-10 px-3 py-2  leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700  ">3</a>
+                  </li>
+                  <li onClick={() => gotoPage(3)}>
+                  <a  aria-current="page" className="z-10 px-3 py-2 rounded-r-lg leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700  ">4</a>
+                  </li> </> :
                   <li onClick={() => gotoPage(2)}>
                   <a  aria-current="page" className="z-10 px-3 py-2 rounded-r-lg leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700  ">3</a>
-                  </li>
+                  </li>}
                   </ul>
                   </nav>
 
