@@ -46,7 +46,7 @@ const Table = ({
   
 
   const [addData, setAddData] = React.useState({
-    id: 1,
+    id: Number(data.length)+1,
     firstName: '',
     bloodGroup: '',
     maidenName: '',
