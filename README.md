@@ -4,7 +4,7 @@ This is a profile dashboard, displaying details of multiple members.
 
 ## Deployement Link
 
-### https://techno-final-c2mnxmwia-harman1107.vercel.app/
+### https://techno-final-3ubfkgcti-harman1107.vercel.app/
 
 ## Functional Requirements Completed
 1. Pulled data from a user API (https://dummyjson.com/users) and shown the data in a table
@@ -21,4 +21,5 @@ This is a profile dashboard, displaying details of multiple members.
 1. Ability to download CSV file of the displayed table.
 2. Used React-table for displaying, sorting, pagination.
 3. Used Tailwind for CSS styling.
+4. Added Confirmation Modal for Delete User
 
