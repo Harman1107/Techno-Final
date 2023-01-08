@@ -27,9 +27,15 @@ const EditableCell = ({
 
   return <input value={value} onChange={onChange} onBlur={onBlur} />;
 };
-var today = new Date(),
+var today = new Date();
  
-    curTime = today.getHours() + ':' + today.getMinutes()
+var hours = today.getHours();
+var minutes = today.getMinutes();
+var ampm = hours >= 12 ? 'PM' : 'AM';
+hours = hours % 12;
+hours = hours ? hours : 12; // the hour '0' should be '12'
+var min = minutes<10 ? '0' +minutes : minutes;
+var strTime = hours + ':' + min + ampm;
 
 const defaultColumn = {
   Cell: EditableCell,
@@ -92,7 +98,7 @@ function App() {
               <div className="mr-40">
                 {tableProps.row.original.birthDate}
                 <p className="text-gray-500 font-normal">
-                  {curTime}
+                  {strTime}
                 </p>
               </div>
             ),

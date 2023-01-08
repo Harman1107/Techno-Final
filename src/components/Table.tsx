@@ -42,8 +42,7 @@ const Table = ({
   };
   var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   var today = new Date(),
-  date = month[Number(today.getMonth())] + " " + today.getDay() + ", "+ today.getFullYear();
-  
+  date = month[Number(today.getMonth())] + " "+ 1 + ", "+ today.getFullYear();
 
   const [addData, setAddData] = React.useState({
     id: Number(data.length)+1,
