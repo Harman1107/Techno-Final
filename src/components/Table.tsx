@@ -18,6 +18,7 @@ const Table = ({
     page,
     nextPage,
     setPageSize,
+    gotoPage,
     previousPage,
     state: {pageIndex, pageSize},
     state,
@@ -509,6 +510,20 @@ const Table = ({
                   </tbody>
                 </table>
                 <div className="min-w-full">
+                <nav aria-label="Page navigation example" className='ml-[50%] mr-[50%] mt-5'>
+                    <ul className="inline-flex items-center -space-x-px">
+                      <li onClick={() => gotoPage(0)}>
+                        <a  className="px-3 py-2 rounded-l-lg leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">1</a>
+                    </li>
+                  <li onClick={() => gotoPage(1)}>
+                  <a  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">2</a>
+                  </li>
+                  <li onClick={() => gotoPage(2)}>
+                  <a  aria-current="page" className="z-10 px-3 py-2 rounded-r-lg leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700  ">3</a>
+                  </li>
+                  </ul>
+                  </nav>
+
                   <a
                     onClick={() => previousPage()}
                     className=" m-4 float-left inline-flex cursor-pointer items-center px-4 py-2 mr-3 text-sm font-medium text-black-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-800 hover:text-white "
@@ -528,6 +543,8 @@ const Table = ({
                     </svg>
                     Previous
                   </a>
+
+                  
                   <a
                     onClick={() => nextPage()}
                     className=" m-4 float-right inline-flex cursor-pointer items-right px-4 py-2 mr-3 text-sm font-medium text-black-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-800 hover:text-white "
